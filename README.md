@@ -3,4 +3,4 @@ Industri4.0
 
 URL for the online shop:
 
-aasmunmy.github.io/box-concept/
+[Visit Our Shop](aasmunmy.github.io/box-concept/)
