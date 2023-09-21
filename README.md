@@ -1,6 +1,6 @@
 # box-concept
 Industri4.0
 
-URL:
+URL for the online shop:
 
 aasmunmy.github.io/box-concept/
