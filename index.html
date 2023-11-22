@@ -1,249 +1,71 @@
 <!DOCTYPE html>
-<html lang="no">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bestillingsside</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: url('https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') no-repeat center center fixed;
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-            color: #fff;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .sub-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .input-group {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .input-group div {
-            width: 48%;
-        }
-
-        input[type="text"], input[type="date"],
-        input[type="submit"], input[type="radio"],
-        select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: rgba(255, 255, 255, 0.8);
-            color: #333;
-        }
-
-        input[type="submit"] {
-            background-color: #ff4500;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #ff6347;
-        }
-
-        .rating {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .rating label {
-            font-size: 24px;
-            cursor: pointer;
-            padding: 0 5px;
-        }
-
-        input[type="radio"] {
-            display: none;
-        }
-
-        input[type="radio"]:checked ~ label {
-            color: gold;
-        }
-
-        /* Styles for the cart */
-        .cart {
-            margin-top: 40px;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 5px;
-        }
-
-        .cart h4 {
-            text-align: center;
-            color: #fff;
-        }
-
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-    </style>
-</head>
-
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Box Consept</title>
+        <link href="style.css" rel="stylesheet">
+    </head>
 <body>
-    <div class="container">
-        <h1>Industri 4.0</h1>
-        <div class="sub-header">
-            <h2>Box Concept</h2>
-            <h3>Gruppe 6</h3>
-        </div>
-        <form id="orderForm">
-            <div class="input-group">
-                <div>
-                    <label for="product">Produkt:</label>
-                    <select id="product" name="product" required>
-                        <option value="Box">Box</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="quantity">Antall:</label>
-                    <input type="number" id="quantity" name="quantity" placeholder="Antall Box" min=1 max=5 required>
-                    <small>Max antall 5</small>
-                </div>
-            </div>
+    <main class="container">
 
-            <div class="input-group">
-                <div>
-                    <label for="size">Størrelse:</label>
-                    <select id="size" name="size">
-                        <option value="Liten">Liten</option>
-                        <option value="Medium">Medium</option>
-                        <option value="Stor">Stor</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="form">Form:</label>
-                    <select id="form" name="form">
-                        <option value="Vertikal">Vertikal</option>
-                        <option value="Horisontal">Horisontal</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="input-group">
-                <div>
-                    <label for="drawers">Skuffer:</label>
-                    <input type="number" id="drawers" name="drawers" placeholder="Antall skuffer" min=1 max=4>
-                    <small>Max antall 4</small>
-                </div>
-                <div>
-                    <label for="drawerSize">Størrelse Skuffer:</label>
-                    <select id="drawerSize" name="drawerSize">
-                        <option value="Liten">Liten</option>
-                        <option value="Medium">Medium</option>
-                        <option value="Stor">Stor</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="input-group">
-                <div>
-                    <label for="color">Farge:</label>
-                    <select id="color" name="color">
-                        <option value="Hvit">Hvit</option>
-                        <option value="Svart">Svart</option>
-                        <option value="Blå">Blå</option>
-                        <option value="Rød">Rød</option>
-                        <option value="Grønn">Grønn</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="delivery">Leveringsmåte:</label>
-                    <select id="delivery" name="delivery">
-                        <option value="Standard">Standard</option>
-                        <option value="Express">Express</option>
-                    </select>
-                </div>
-            </div>
-
-            <label for="deliveryDate">Ønsket leveringsdato:</label>
-            <input type="date" id="deliveryDate" name="deliveryDate">
-
-            <input type="submit" value="Bestill">
-        </form>
-
-        <div class="rating">
-            <span>Vurder oss:</span>
-            <input type="radio" id="star5" name="rating" value="5">
-            <label for="star5" title="5 stjerner"><i class="fas fa-star"></i></label>
-            <input type="radio" id="star4" name="rating" value="4">
-            <label for="star4" title="4 stjerner"><i class="fas fa-star"></i></label>
-            <input type="radio" id="star3" name="rating" value="3">
-            <label for="star3" title="3 stjerner"><i class="fas fa-star"></i></label>
-            <input type="radio" id="star2" name="rating" value="2">
-            <label for="star2" title="2 stjerner"><i class="fas fa-star"></i></label>
-            <input type="radio" id="star1" name="rating" value="1">
-            <label for="star1" title="1 stjerne"><i class="fas fa-star"></i></label>
+        <div class="left-column">
+            <img data-image="single" class="active" src="images/single.png" alt="">
+            <img data-image="double" src="images/double.png" alt="">
+            <img data-image="triple" src="images/triple.png" alt="">
+            <img data-image="stackedsingle" src="images/stackedsingle.png" alt="">
+            <img data-image="stackeddouble" src="images/stackeddouble.png" alt="">
+            <img data-image="stackedtriple" src="images/stackedtriple.png" alt="">
         </div>
 
-        <!-- Handlekurv -->
-        <div class="cart" id="cart">
-            <h4>Handlekurv</h4>
-            <!-- Innholdet i handlekurven vil bli lagt til her -->
+        <div class="right-column">
+            <div class="product-description">
+                <span>Box consept gr. 6</span>
+                <h1>Electronic Storage Box</h1>
+                <p>For all your electronic storage needs</p>
         </div>
-    </div>
 
-    <script>
-        document.getElementById('orderForm').addEventListener('submit', function (e) {
-            e.preventDefault();
+        <div class="product-configuration">
+            <div class="product-size">
+                <span>Size</span>
+                <div class="size-choose">
+                    <div>
+                        <input data-image = "single" type="radio" value="single" id="single" name="size" checked>
+                        <label for="single">Single</label>
+                    </div>
+                    <div>
+                        <input data-image = "double" type="radio" value="double" id="double" name="size">
+                        <label for="double">Double</label>
+                    </div>
+                    <div>
+                        <input data-image = "triple" type="radio" value="triple" id="triple" name="size">
+                        <label for="triple">Triple</label>
+                    </div>
+                </div>
+            </div>
 
-            let product = document.getElementById('product').value;
-            let quantity = document.getElementById('quantity').value;
-            let size = document.getElementById('size').value;
-            let form = document.getElementById('form').value;
-            let drawers = document.getElementById('drawers').value;
-            let drawerSize = document.getElementById('drawerSize').value;
-            let delivery = document.getElementById('delivery').value;
-            let color = document.getElementById('color').value;
-            let deliveryDate = document.getElementById('deliveryDate').value;
+            <div class="height-config">
+                <span>Height</span>
+                <div class="height-choose">
+                    <div>
+                        <input data-image = "singular" type="radio" value="singular" id="singular" name="height" checked>
+                        <label for="singular">Singular</label>
+                    </div>
+                    <div>
+                        <input data-image = "stacked" type="radio" value="stacked" id="stacked" name="height">
+                        <label for="stacked">Stacked</label>
+                    </div>
+                </div>
+                <a href="#">Inquire  us about custom sizes</a>
+            </div>
+        </div>
 
-            let notificationMessage = `Du har bestilt ${quantity} ${size} ${form} ${product} i ${color} med ${drawers} ${drawerSize} skuffer og ${delivery} levering den ${deliveryDate}!`;
-            alert(notificationMessage);
-
-            // Legger til produktet i handlekurven
-            let cart = document.getElementById('cart');
-            let cartItem = document.createElement('div');
-            cartItem.className = 'cart-item';
-            cartItem.innerHTML = `
-                <span>${product} (${size}, ${form}, ${color}, ${drawers} skuffer av ${drawerSize} størrelse)</span>
-                <span>${quantity} stk</span>
-            `;
-            cart.appendChild(cartItem);
-        });
-    </script>
-</body>
-
+            <div class="product-price">
+                <span>Request price</span>
+                <a href="#" class="cart-btn">Send request</a>
+            </div>
+        </main>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+        <script src="script.js" charset="utf-8"></script>
+    </body>
 </html>
